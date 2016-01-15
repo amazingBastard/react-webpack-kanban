@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 bbbb75bd382bd8df51ce68a0b703f656b3dc4c70 Damir Vazgird <dvazgird@lateralus.lan> 1452717917 -0500	commit (initial): init
+bbbb75bd382bd8df51ce68a0b703f656b3dc4c70 b674bc8cc40fd242a7d04c55d2f33da455f7c84f Damir Vazgird <dvazgird@lateralus.lan> 1452718144 -0500	commit (amend): init
+b674bc8cc40fd242a7d04c55d2f33da455f7c84f 3147962c3c8011ca2d117f36d76b263e6fdf4a96 Damir Vazgird <dvazgird@lateralus.lan> 1452718500 -0500	commit: added readme
+3147962c3c8011ca2d117f36d76b263e6fdf4a96 ee8db1c356f6b0a767bb01d6216526cf1709dc69 Damir Vazgird <dvazgird@lateralus.lan> 1452718661 -0500	commit (amend): added readme
+ee8db1c356f6b0a767bb01d6216526cf1709dc69 28ad661f01da0b0de00cf618169aed7d37c1a51e Damir Vazgird <dvazgird@lateralus.lan> 1452718703 -0500	pull gh master: Merge made by the 'recursive' strategy.
+28ad661f01da0b0de00cf618169aed7d37c1a51e 23a3103103cd4fc2516cc3c11cdbfd7567e03601 Damir Vazgird <dvazgird@lateralus.lan> 1452723611 -0500	commit (amend): Merge branch 'master' of github.com:amazingBastard/react-webpack-kanban
+23a3103103cd4fc2516cc3c11cdbfd7567e03601 0aa3806633d2e740d9a768bb056451d0e85f4b7b Damir Vazgird <dvazgird@lateralus.lan> 1452723703 -0500	pull gh master: Merge made by the 'recursive' strategy.
+0aa3806633d2e740d9a768bb056451d0e85f4b7b e8e8efc9515daa68e915f04e3cc4a60d6530fd94 Damir Vazgird <dvazgird@lateralus.lan> 1452723868 -0500	commit: readme update
+e8e8efc9515daa68e915f04e3cc4a60d6530fd94 ff709aba7ac88a6f2addf56e9040150623d0589d Damir Vazgird <dvazgird@lateralus.lan> 1452723899 -0500	commit (amend): readme update
+ff709aba7ac88a6f2addf56e9040150623d0589d 2bae3c9fc76e55b2e144929281bc0c95c75cb2e4 Damir Vazgird <dvazgird@lateralus.lan> 1452723918 -0500	commit (amend): readme update
+2bae3c9fc76e55b2e144929281bc0c95c75cb2e4 38f68145642b8d7efbf31725bf3f532d0bb277d4 Damir Vazgird <dvazgird@lateralus.lan> 1452723945 -0500	commit (amend): readme update
