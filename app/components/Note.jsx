@@ -9,6 +9,7 @@ export default class Note extends React.Component {
       editing: false
     };
   }
+
   render() {
     // Render the component differently based on state.
     if(this.state.editing) {
@@ -17,6 +18,7 @@ export default class Note extends React.Component {
 
     return this.renderNote();
   }
+  
   renderEdit = () => {
     // We deal with blur and input handlers here. These map to DOM events.
     // We also set selection to input end using a callback at a ref.
@@ -36,22 +38,37 @@ export default class Note extends React.Component {
       onBlur={this.finishEdit}
       onKeyPress={this.checkEnter} />;
   };
+
+  renderDelete = () => {
+    return <button onClick={this.props.onDelete}>x</button>;
+  };
+
   renderNote = () => {
     // If the user clicks a normal note, trigger editing logic.
-    return <div onClick={this.edit}>{this.props.task}</div>;
+    const onDelete = this.props.onDelete;
+
+    return (
+      <div onClick={this.edit}>
+        <span>{this.props.task}</span>
+        {onDelete ? this.renderDelete() : null }
+      </div>
+    );
   };
+
   edit = () => {
     // Enter edit mode.
     this.setState({
       editing: true
     });
   };
+
   checkEnter = (e) => {
     // The user hit *enter*, let's finish up.
     if(e.key === 'Enter') {
       this.finishEdit(e);
     }
   };
+
   finishEdit = (e) => {
     // `Note` will trigger an optional `onEdit` callback once it
     // has a new value. We will use this to communicate the change to
