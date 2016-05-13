@@ -1,9 +1,11 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
+
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Load *package.json* so we can use `dependencies` from there
 const pkg = require('./package.json');
@@ -11,14 +13,16 @@ const pkg = require('./package.json');
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
+  style: path.join(__dirname, 'app/main.css')
 };
 
 process.env.BABEL_ENV = TARGET;
 
 const common = {
   entry: {
-    app: PATHS.app
+    app: PATHS.app,
+    style: PATHS.style
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -71,6 +75,16 @@ if(TARGET === 'start' || !TARGET) {
       host: process.env.HOST,
       port: process.env.PORT
     },
+    module: {
+      loaders: [
+        // Define development specific CSS setup
+        {
+          test: /\.css$/,
+          loaders: ['style', 'css'],
+          include: PATHS.app
+        }
+      ]
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new NpmInstallPlugin({
@@ -95,6 +109,16 @@ if(TARGET === 'build') {
       path: PATHS.build,
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js'
+    },
+    module: {
+      loaders: [
+        // Extract CSS during build
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style', 'css'),
+          include: PATHS.app
+        }
+      ]
     },
     plugins: [
       new CleanPlugin([PATHS.build]),
