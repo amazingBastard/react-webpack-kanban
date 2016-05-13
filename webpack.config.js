@@ -5,6 +5,7 @@ const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 // Load *package.json* so we can use `dependencies` from there
 const pkg = require('./package.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
@@ -39,7 +40,15 @@ const common = {
         include: PATHS.app
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'node_modules/html-webpack-template/index.ejs',
+      title: 'Kanban app',
+      appMountId: 'app',
+      inject: false
+    })
+  ]
 };
 
 if(TARGET === 'start' || !TARGET) {
